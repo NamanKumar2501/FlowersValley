@@ -32,7 +32,7 @@ Fragment fragment;
 
      replaceFragment(new HomeFragment());
 
-//        replaceFragment(new LoginFragment());
+       replaceFragment(new LoginFragment());
 
 
         bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
