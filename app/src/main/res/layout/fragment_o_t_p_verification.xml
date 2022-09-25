@@ -100,7 +100,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:gravity="center"
-                android:hint="OTP"
+                android:hint="Enter OTP"
                 android:textAlignment="center"
                 app:boxBackgroundColor="@color/white">
 

@@ -16,6 +16,8 @@ import com.example.flowervalley.fragment.FavoriteFragment;
 import com.example.flowervalley.fragment.HomeFragment;
 import com.example.flowervalley.fragment.LoginFragment;
 import com.example.flowervalley.fragment.ProfileFragment;
+import com.example.flowervalley.fragment.SignUpFragment;
+import com.example.flowervalley.fragment.ThankYouFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,7 +32,12 @@ Fragment fragment;
 
      bottomNavigationView =findViewById(R.id.bottom_navigation);
 
-     replaceFragment(new HomeFragment());
+
+//     replaceFragment(new SignUpFragment());
+
+//        replaceFragment(new ThankYouFragment());
+
+//        replaceFragment(new HomeFragment());
 
        replaceFragment(new LoginFragment());
 
@@ -59,7 +66,6 @@ Fragment fragment;
     }
 
     void replaceFragment(Fragment fragment){
-//        MainActivity.bottomNavigationView.setVisibility(View.GONE);
         FragmentManager fragmentManager =getSupportFragmentManager();
         FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frame_Layout,fragment);

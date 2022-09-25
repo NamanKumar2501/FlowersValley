@@ -30,4 +30,11 @@
     <string name="verify">Verify</string>
     <string name="verify_otp">Verify OTP</string>
     <string name="don_t_have_an_account">Don\'t have an Account</string>
+    <string name="show_more">SHOW MORE</string>
+    <string name="enter_mobile_number">Enter Mobile Number</string>
+    <string name="create_your_account">Create Your Account</string>
+    <string name="enter_your_name">Enter Your Name</string>
+    <string name="fill_the_information_below">Fill the information below</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="go_to_payment"><![CDATA[GO TO PAYMENT -->]]></string>
 </resources>
