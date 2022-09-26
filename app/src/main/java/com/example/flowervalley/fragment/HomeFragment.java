@@ -31,19 +31,9 @@ public class HomeFragment extends Fragment {
     RecyclerView recyclerView;
     AppCompatTextView view_all;
 
-    private SharedPreferenceManager preferenceManager;
-    private static final String TAG = "HomeFragment";
 
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
-        if (getArguments() != null){
-
-        }
-        MainActivity.bottomNavigationView.setVisibility(View.VISIBLE);
-    }
 
 
     @Override
@@ -51,7 +41,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-
+        MainActivity.bottomNavigationView.setVisibility(View.VISIBLE);
 
         imageSlider = view.findViewById(R.id.image_slider);
 
@@ -92,15 +82,6 @@ public class HomeFragment extends Fragment {
 
         recyclerView.setAdapter(new FlowerRecycleAdapter(arrFlower, getContext()));
 
-
-
-
-
-        preferenceManager=new SharedPreferenceManager(getContext());
-
-        Log.i(TAG, "onCreateView: Name > "+preferenceManager.getName());
-        Log.i(TAG, "onCreateView: Email > "+preferenceManager.getEmail());
-        Log.i(TAG, "onCreateView: Mobile > "+preferenceManager.getPhone());
 
 
 

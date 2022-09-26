@@ -2,7 +2,10 @@ package com.example.flowervalley.fragment;
 
 import android.os.Bundle;
 
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -10,7 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.flowervalley.MainActivity;
 import com.example.flowervalley.R;
+import com.example.flowervalley.Utils;
 import com.example.flowervalley.adapter.ViewAllFlowerAdapter;
 import com.example.flowervalley.model.FlowerRecyclerModal;
 
@@ -18,6 +23,8 @@ import java.util.ArrayList;
 
 
 public class ViewAllRecyclerFragment extends Fragment {
+
+    AppCompatImageView arrow;
 
     RecyclerView recyclerView;
     ArrayList<FlowerRecyclerModal> arrFlower;
@@ -28,6 +35,10 @@ public class ViewAllRecyclerFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_view_all_recycler, container, false);
+
+        arrow.findViewById(R.id.arrow_popular_items);
+
+
 
         recyclerView=view.findViewById(R.id.flower_recyclerview);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
@@ -62,6 +73,8 @@ public class ViewAllRecyclerFragment extends Fragment {
 
         recyclerView.setAdapter(new ViewAllFlowerAdapter(arrFlower,getContext()));
 
+
         return view;
     }
+
 }

@@ -72,6 +72,8 @@ public class OTPVerificationFragment extends Fragment {
         mAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
 
+        databaseReference = firebaseDatabase.getReference("users");
+
         FirebaseAuth.getInstance().getFirebaseAuthSettings().forceRecaptchaFlowForTesting(false);
 
 
@@ -95,35 +97,33 @@ public class OTPVerificationFragment extends Fragment {
     }
 
     private void verifyOtp(String otp, String token) {
+        Log.i(TAG, "verifyOtp: "+otp+" "+token);
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(token, otp);
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            Log.d(TAG, "signInWithCredential:success");
+
+                            Utils.replaceFragment(new HomeFragment(), getActivity());
 
 
+                            FirebaseUser firebaseUser = task.getResult().getUser();
                             Log.i(TAG, "verifyOtp: Name " + name);
                             Log.i(TAG, "verifyOtp: Email " + email);
                             Log.i(TAG, "verifyOtp: Mobile " + mobile);
 
 
-
-
                             if (name != null && email != null && mobile != null) {
                                 User user = new User("" + name, "" + email, "" + mobile);
-                                databaseReference = firebaseDatabase.getReference("users").child(mobile);
+
+
                                 databaseReference.addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                                         databaseReference.setValue(user);
                                         Log.i(TAG, "onDataChange: " + snapshot);
-                                        if (snapshot.exists()) {
-                                            Snackbar.make(btnVerify, "Registration Successfully.", Snackbar.LENGTH_SHORT).show();
-//                                            Utils.replaceFragment(new LoginFragment(), getActivity());
-                                        } else {
-                                            Snackbar.make(btnVerify, "Something went wrong.", Snackbar.LENGTH_SHORT).show();
-                                        }
                                     }
 
                                     @Override
@@ -131,34 +131,8 @@ public class OTPVerificationFragment extends Fragment {
                                         Log.e(TAG, "onCancelled: " + error);
                                     }
 
-                                });
-                            } else {
-                                databaseReference = firebaseDatabase.getReference("users").child(mobile);
-                                databaseReference.addValueEventListener(new ValueEventListener() {
-                                    @Override
-                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                                        Log.i(TAG, "Login onDataChange Name: " + snapshot.child("name").getValue().toString());
-                                        Log.i(TAG, "Login onDataChange Email: " + snapshot.child("email").getValue().toString());
-                                        Log.i(TAG, "Login onDataChange Mobile: " + snapshot.child("mobile").getValue().toString());
-
-
-                                        SharedPreferenceManager sharedPreferenceManager = new SharedPreferenceManager(getContext());
-                                        sharedPreferenceManager.setName(snapshot.child("name").getValue().toString());
-                                        sharedPreferenceManager.setEmail(snapshot.child("email").getValue().toString());
-                                        sharedPreferenceManager.setPhone(snapshot.child("mobile").getValue().toString());
-
-                                        Utils.replaceFragment(new HomeFragment(), getActivity());
-
-                                    }
-
-                                    @Override
-                                    public void onCancelled(@NonNull DatabaseError error) {
-                                        Log.e(TAG, "onCancelled: " + error);
-                                    }
                                 });
                             }
-
 
 
 

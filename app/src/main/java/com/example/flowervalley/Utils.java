@@ -11,7 +11,7 @@ import com.google.firebase.auth.AuthResult;
 
 public class Utils {
 
-        public static void replaceFragment(HomeFragment fragment, FragmentActivity activity) {
+        public static void replaceFragment(Fragment fragment, FragmentActivity activity) {
             FragmentManager fragmentManager = activity.getSupportFragmentManager();
             FragmentTransaction ft = fragmentManager.beginTransaction();
             ft.replace(R.id.frame_Layout, fragment);

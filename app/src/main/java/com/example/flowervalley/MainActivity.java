@@ -27,6 +27,8 @@ Fragment fragment;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        replaceFragment(new LoginFragment());
+
      bottomNavigationView =findViewById(R.id.bottom_navigation);
 
 
@@ -34,7 +36,7 @@ Fragment fragment;
 
 //        replaceFragment(new ThankYouFragment());
 
-        replaceFragment(new HomeFragment());
+//        replaceFragment(new HomeFragment());
 
 //       replaceFragment(new LoginFragment());
 
