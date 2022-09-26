@@ -1,205 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/green_700"
+    android:orientation="vertical"
+    android:background="@drawable/backgroung_profile"
+    xmlns:card_view="http://schemas.android.com/tools"
+    tools:ignore="ExtraText"
     tools:context=".fragment.ProfileFragment">
 
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/flower_valley_splash"/>
-
 
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/app_bar"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:gravity="center"
-        android:orientation="vertical">
-
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/logo"
-            android:layout_centerHorizontal="true"
-            android:fontFamily="@font/poppins_medium"
-            android:text="Checkout"
-            android:textColor="@color/white"
-            android:textSize="22sp" />
-
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/app_bar"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/view_all_recycler_bg"
-        android:orientation="vertical">
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/fill_the_information_below"
-            android:textColor="@color/green_700"
-            android:textSize="16sp" />
-
+        android:layout_height="wrap_content">
         <androidx.appcompat.widget.LinearLayoutCompat
+            android:padding="8dp"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="415dp"
-            android:layout_marginLeft="28dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="28dp"
-            android:layout_marginBottom="28dp"
-            android:background="@color/white">
-
-
-            <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_height="?attr/actionBarSize">
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginRight="6dp"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:layout_height="match_parent">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:padding="5dp"
+                    android:layout_alignParentStart="true"
+                    android:src="@drawable/ic_arrow"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="41dp"
+                    android:layout_marginBottom="5dp"
+                    android:padding="1dp"
+                    android:src="@drawable/ic_shopping" />
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/profile_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/enter_your_name"
-                    app:boxBackgroundColor="@color/white"
-                    app:startIconDrawable="@drawable/ic_person">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_margin="5dp"
+                    android:padding="1dp"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/ic_notification"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"/>
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/name_profile"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
-                        android:maxLength="28" />
+            </RelativeLayout>
 
-                </com.google.android.material.textfield.TextInputLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:text="My Profile"
+                android:textStyle="normal"
+                android:textColor="@color/white"
+                android:textSize="28sp"
+                android:layout_marginStart="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/profile_phone_number"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:hint="@string/phone_number"
-                    app:boxBackgroundColor="@color/white"
-                    app:startIconDrawable="@drawable/ic_call">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/profile_ph_number"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="number"
-                        android:maxLength="10" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/alternate_phone_number"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:hint="Alternate Phone Number"
-                    app:boxBackgroundColor="@color/white"
-                    app:startIconDrawable="@drawable/ic_call">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/profile_alternate_ph_number"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="number"
-                        android:maxLength="10" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/pin_code"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:hint="Pin Code"
-                    app:boxBackgroundColor="@color/white"
-                    app:startIconDrawable="@drawable/ic_baseline_fiber_pin_24">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/profile_pin_code"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="number"
-                        android:maxLength="6" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/state"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:hint="State"
-                    app:boxBackgroundColor="@color/white"
-                    app:startIconDrawable="@drawable/ic_baseline_state_pin_24">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/profile_state"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="text"
-                        android:maxLength="50" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/house_number_building_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:hint="House Number, Building Name"
-                    app:boxBackgroundColor="@color/white"
-                    app:startIconDrawable="@drawable/ic_baseline_house_number_24">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/profile_hose_number_building_name"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="text"
-                        android:maxLength="60" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/road_name_area_colony"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:hint="Road Name, Area, Colony"
-                    app:boxBackgroundColor="@color/white"
-                    app:startIconDrawable="@drawable/ic_baseline_add_road_24">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/mobile"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="text"
-                        android:maxLength="100" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-            </androidx.appcompat.widget.LinearLayoutCompat>
 
 
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -207,15 +72,299 @@
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="280dp"
-        android:layout_height="55dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/thankyou_btn_design"
-        android:text="@string/go_to_payment" />
+
+    <RelativeLayout
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="260dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_marginTop="36dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="10dp"
+            app:cardUseCompatPadding="true"
+            card_view:cardCornerRAdius="5dp">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="25dp"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:text="Naman Kumar"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+                    android:text="namankumar246727@gmail.com"
+                    android:textColor="#5C5A5A"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#79D6D1D1" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Personal Info"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#79D6D1D1" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Family"
+                        android:textColor="#636262"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#79D6D1D1" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Vitals"
+                        android:textColor="#636262"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.imageview.ShapeableImageView
+
+            android:layout_width="78dp"
+            android:layout_height="98dp"
+            android:layout_centerHorizontal="true"
+            android:elevation="15dp"
+            android:padding="5dp"
+            android:src="@drawable/my_image" />
+
+
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:card_view="http://schemas.android.com/tools"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="10dp"
+            app:cardUseCompatPadding="true"
+            card_view:cardCornerRAdius="5dp">
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:orientation="vertical"
+                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:orientation="horizontal"
+                        android:padding="1dp"
+                        android:gravity="center"
+                        android:layout_alignParentStart="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:padding="5dp"
+                            android:src="@drawable/ic_person"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"/>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:text="Address"
+                            android:textSize="16sp"
+                            android:layout_margin="5dp"
+                            android:textStyle="bold|normal"
+                            android:textColor="#F8554A4A"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:orientation="horizontal"
+                        android:padding="1dp"
+                        android:gravity="center"
+                        android:layout_alignParentEnd="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:padding="5dp"
+                            android:src="@drawable/ic_baseline_add_24"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"/>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:text="Add Information"
+                            android:textSize="16sp"
+                            android:layout_margin="5dp"
+                            android:textStyle="bold|normal"
+                            android:textColor="#286DC2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                </RelativeLayout>
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <androidx.appcompat.widget.AppCompatImageView
+                        app:tint="@color/black"
+                        android:padding="2dp"
+                        android:layout_marginStart="10dp"
+                        android:src="@drawable/ic_baseline_home_24"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"/>
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:text="Noorpur Bijnor (U.P)"
+                            android:textSize="17sp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:text="Vill. Roshanpur jagir \nPo. Hashupura\nNoorpur (Bijnor) \n246727"
+                            android:textSize="14sp"
+                            android:textColor="#ED5E5E5E"
+                            android:textStyle="normal"
+                            android:textAlignment="textStart"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            card_view:ignore="RtlCompat" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
 
 
 
-</RelativeLayout>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:card_view="http://schemas.android.com/tools"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="10dp"
+        app:cardUseCompatPadding="true"
+        card_view:cardCornerRAdius="5dp">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:orientation="horizontal"
+                android:padding="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:padding="2dp"
+                    android:src="@drawable/ic_phone"
+                    android:layout_marginStart="5dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:text="Mobile"
+                    android:layout_marginStart="10dp"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:textColor="#605E5E"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:text="+91 9548140812"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:layout_marginStart="25dp"
+                android:layout_marginBottom="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

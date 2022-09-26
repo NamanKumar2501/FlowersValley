@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.flowervalley.MainActivity;
 import com.example.flowervalley.R;
+import com.example.flowervalley.SharedPreferenceManager;
 import com.example.flowervalley.adapter.FlowerRecycleAdapter;
 import com.example.flowervalley.model.FlowerRecyclerModal;
 
@@ -27,14 +29,19 @@ public class HomeFragment extends Fragment {
     ArrayList<FlowerRecyclerModal> arrFlower;
     ImageSlider imageSlider;
     RecyclerView recyclerView;
-
     AppCompatTextView view_all;
+
+    private SharedPreferenceManager preferenceManager;
+    private static final String TAG = "HomeFragment";
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        if (getArguments() != null){
+
+        }
         MainActivity.bottomNavigationView.setVisibility(View.VISIBLE);
     }
 
@@ -84,6 +91,18 @@ public class HomeFragment extends Fragment {
 
 
         recyclerView.setAdapter(new FlowerRecycleAdapter(arrFlower, getContext()));
+
+
+
+
+
+        preferenceManager=new SharedPreferenceManager(getContext());
+
+        Log.i(TAG, "onCreateView: Name > "+preferenceManager.getName());
+        Log.i(TAG, "onCreateView: Email > "+preferenceManager.getEmail());
+        Log.i(TAG, "onCreateView: Mobile > "+preferenceManager.getPhone());
+
+
 
 
         view_all=view.findViewById(R.id.view_all);

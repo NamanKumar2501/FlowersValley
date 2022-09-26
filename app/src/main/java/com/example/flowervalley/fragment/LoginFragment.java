@@ -2,6 +2,7 @@ package com.example.flowervalley.fragment;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 
 import com.example.flowervalley.MainActivity;
 import com.example.flowervalley.R;
+import com.example.flowervalley.Utils;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
@@ -29,6 +31,7 @@ public class LoginFragment extends Fragment {
     private MaterialButton btnLogin;
     private TextInputEditText etMobile;
     private FirebaseAuth mAuth;
+    private LinearLayoutCompat signUp;
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallback;
 
     public LoginFragment() {
@@ -39,6 +42,7 @@ public class LoginFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
+
         }
         MainActivity.bottomNavigationView.setVisibility(View.GONE);
     }
@@ -51,11 +55,10 @@ public class LoginFragment extends Fragment {
 
         btnLogin = view.findViewById(R.id.btn_login);
         etMobile = view.findViewById(R.id.mobile);
+        signUp = view.findViewById(R.id.sign_up);
 
         mAuth = FirebaseAuth.getInstance();
         mAuth.getFirebaseAuthSettings().setAppVerificationDisabledForTesting(false);
-
-
 
 
 
@@ -75,7 +78,12 @@ public class LoginFragment extends Fragment {
             }
         });
 
-
+        signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Utils.replaceFragment(new RagisterFragment(), getActivity());
+            }
+        });
 
 
         mCallback = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {

@@ -3,7 +3,6 @@ package com.example.flowervalley;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,8 +15,6 @@ import com.example.flowervalley.fragment.FavoriteFragment;
 import com.example.flowervalley.fragment.HomeFragment;
 import com.example.flowervalley.fragment.LoginFragment;
 import com.example.flowervalley.fragment.ProfileFragment;
-import com.example.flowervalley.fragment.SignUpFragment;
-import com.example.flowervalley.fragment.ThankYouFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -37,9 +34,9 @@ Fragment fragment;
 
 //        replaceFragment(new ThankYouFragment());
 
-//        replaceFragment(new HomeFragment());
+        replaceFragment(new HomeFragment());
 
-       replaceFragment(new LoginFragment());
+//       replaceFragment(new LoginFragment());
 
 
         bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

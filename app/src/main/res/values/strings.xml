@@ -37,4 +37,5 @@
     <string name="fill_the_information_below">Fill the information below</string>
     <string name="phone_number">Phone Number</string>
     <string name="go_to_payment"><![CDATA[GO TO PAYMENT -->]]></string>
+    <string name="register">Register</string>
 </resources>

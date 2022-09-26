@@ -27,13 +27,15 @@
         <entry key="..\:/New folder/Flowers/app/src/main/res/layout/activity_splash.xml" value="0.182518115942029" />
         <entry key="..\:/New folder/Flowers/app/src/main/res/layout/flower_design_item.xml" value="0.25" />
         <entry key="..\:/New folder/Flowers/app/src/main/res/layout/fragment_cart.xml" value="0.25" />
+        <entry key="..\:/New folder/Flowers/app/src/main/res/layout/fragment_check_out.xml" value="0.19293478260869565" />
         <entry key="..\:/New folder/Flowers/app/src/main/res/layout/fragment_dash_board.xml" value="0.1743659420289855" />
         <entry key="..\:/New folder/Flowers/app/src/main/res/layout/fragment_favorite.xml" value="0.22" />
-        <entry key="..\:/New folder/Flowers/app/src/main/res/layout/fragment_home.xml" value="0.25" />
-        <entry key="..\:/New folder/Flowers/app/src/main/res/layout/fragment_login.xml" value="0.22" />
+        <entry key="..\:/New folder/Flowers/app/src/main/res/layout/fragment_home.xml" value="0.15" />
+        <entry key="..\:/New folder/Flowers/app/src/main/res/layout/fragment_login.xml" value="0.18" />
         <entry key="..\:/New folder/Flowers/app/src/main/res/layout/fragment_o_t_p_verification.xml" value="0.25" />
         <entry key="..\:/New folder/Flowers/app/src/main/res/layout/fragment_profile.xml" value="0.21" />
-        <entry key="..\:/New folder/Flowers/app/src/main/res/layout/fragment_sign_up.xml" value="0.20416666666666666" />
+        <entry key="..\:/New folder/Flowers/app/src/main/res/layout/fragment_ragister.xml" value="0.22" />
+        <entry key="..\:/New folder/Flowers/app/src/main/res/layout/fragment_sign_up.xml" value="0.22" />
         <entry key="..\:/New folder/Flowers/app/src/main/res/layout/fragment_thank_you.xml" value="0.20416666666666666" />
         <entry key="..\:/New folder/Flowers/app/src/main/res/layout/fragment_view_all_recycler.xml" value="0.1743659420289855" />
         <entry key="..\:/New folder/Flowers/app/src/main/res/layout/view_all_design.xml" value="0.25" />
