@@ -16,11 +16,16 @@ import com.example.flowervalley.fragment.HomeFragment;
 import com.example.flowervalley.fragment.LoginFragment;
 import com.example.flowervalley.fragment.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.FirebaseApp;
 
 public class MainActivity extends AppCompatActivity {
-   public static BottomNavigationView bottomNavigationView;
 
-Fragment fragment;
+
+   public static BottomNavigationView bottomNavigationView;
+    Fragment fragment;
+    private SharedPreferenceManager sharedPreferenceManager;
+
+
     @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,17 +34,9 @@ Fragment fragment;
 
         replaceFragment(new LoginFragment());
 
+
+
      bottomNavigationView =findViewById(R.id.bottom_navigation);
-
-
-//     replaceFragment(new SignUpFragment());
-
-//        replaceFragment(new ThankYouFragment());
-
-//        replaceFragment(new HomeFragment());
-
-//       replaceFragment(new LoginFragment());
-
 
         bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -62,6 +59,17 @@ Fragment fragment;
                 return true;
             }
         });
+        FirebaseApp.initializeApp(getApplicationContext());
+
+        sharedPreferenceManager = new SharedPreferenceManager(this);
+
+        if (sharedPreferenceManager.getName() != null) {
+            replaceFragment(new HomeFragment());
+        } else {
+            replaceFragment(new LoginFragment());
+        }
+
+
     }
 
     void replaceFragment(Fragment fragment){

@@ -3,7 +3,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatTextView;
-import androidx.appcompat.widget.LinearLayoutCompat;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -46,9 +46,9 @@ public class LoginFragment extends Fragment {
         FirebaseApp.initializeApp(getContext().getApplicationContext());
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
+            MainActivity.bottomNavigationView.setVisibility(View.GONE);
 
         }
-        MainActivity.bottomNavigationView.setVisibility(View.GONE);
     }
 
     @Override
@@ -56,6 +56,7 @@ public class LoginFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_login, container, false);
+
 
         btnLogin = view.findViewById(R.id.btn_login);
         etMobile = view.findViewById(R.id.mobile);
@@ -122,16 +123,17 @@ public class LoginFragment extends Fragment {
                             @Override
                             public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                                 super.onCodeSent(s, forceResendingToken);
-                                Toast.makeText(getContext(), "Aapka Code Send ho gya hai. ", Toast.LENGTH_SHORT).show();
                                 Log.i(TAG, "onCodeSent: " + s);
                                 OTPVerificationFragment otpVerificationFragment = new OTPVerificationFragment();
+
                                 Bundle bundle = new Bundle();
                                 bundle.putString("token", s);
+
+                                // Mobile number added for login
+                                bundle.putString("mobile", mobile);
+
                                 otpVerificationFragment.setArguments(bundle);
-                                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                                FragmentTransaction ft = fragmentManager.beginTransaction();
-                                ft.replace(R.id.frame_Layout,new HomeFragment());
-                                ft.commit();
+
                                 Utils.replaceFragment(otpVerificationFragment, getActivity());
 
                             }
@@ -140,4 +142,4 @@ public class LoginFragment extends Fragment {
         PhoneAuthProvider.verifyPhoneNumber(options);
     }
 
-    }
+}

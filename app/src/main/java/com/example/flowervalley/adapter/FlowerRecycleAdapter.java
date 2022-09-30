@@ -50,10 +50,12 @@ public class FlowerRecycleAdapter extends RecyclerView.Adapter<FlowerRecycleAdap
         return arrFlower.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
         AppCompatImageView flower_img;
         AppCompatTextView flower_name,flower_price;
+
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             flower_img=itemView.findViewById(R.id.flower_image);

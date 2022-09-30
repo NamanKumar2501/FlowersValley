@@ -53,7 +53,7 @@ public class ViewAllFlowerAdapter extends RecyclerView.Adapter<ViewAllFlowerAdap
     public int getItemCount() { return arrFlower.size();}
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         AppCompatImageView flower_img;
         AppCompatTextView flower_name, flower_price;
 

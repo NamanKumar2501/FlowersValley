@@ -32,15 +32,11 @@ public class RagisterFragment extends Fragment {
     private MaterialButton btnRegister;
     private FirebaseAuth mAuth;
 
-    public void RegisterFragment() {
-        // Required empty public constructor
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-
 
         }
     }
@@ -126,14 +122,7 @@ public class RagisterFragment extends Fragment {
                                 bundle.putString("mobile", mobileNumber);
                                 fragment.setArguments(bundle);
 
-
-
-
-                                // ------------------ ERROR -------------
-
-//                              Utils.replaceFragment(fragment, getActivity());
-
-                                // ------------------ ERROR -------------
+                                Utils.replaceFragment(fragment, getActivity());
 
                             }
                         })          // OnVerificationStateChangedCallbacks
