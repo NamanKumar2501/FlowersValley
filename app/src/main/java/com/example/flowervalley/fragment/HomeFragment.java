@@ -21,9 +21,10 @@ import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.flowervalley.MainActivity;
 import com.example.flowervalley.R;
 import com.example.flowervalley.SharedPreferenceManager;
+import com.example.flowervalley.adapter.FlowerAdapter;
 import com.example.flowervalley.adapter.FlowerRecycleAdapter;
 import com.example.flowervalley.model.Banner;
-import com.example.flowervalley.model.FlowerRecyclerModal;
+import com.example.flowervalley.model.Flower;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,15 +34,21 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
-    private ArrayList<FlowerRecyclerModal> arrFlower;
+    private ArrayList<Flower> flowers;
+    private RecyclerView flowerRecyclerview;
     private ImageSlider imageSlider;
-    private RecyclerView recyclerView;
     private AppCompatTextView view_all;
 
     private SharedPreferenceManager preferenceManager;
     private static final String TAG = "HomeFragment";
     private DatabaseReference mDatabaseRef;
+    private FirebaseDatabase firebaseDatabase;
     private Banner banner;
+    private Flower flower;
+
+    public HomeFragment() {
+        // Required empty public constructor
+    }
 
 
     public void onCreate(Bundle savedInstanceState) {
@@ -59,26 +66,26 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-
-
         imageSlider = view.findViewById(R.id.image_slider);
-        recyclerView=view.findViewById(R.id.recycler_view);
+        flowerRecyclerview=view.findViewById(R.id.recycler_view);
         view_all=view.findViewById(R.id.view_all);
-
-
 
         preferenceManager = new SharedPreferenceManager(getContext());
         ArrayList<SlideModel> slideModels = new ArrayList<>();
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("banners");
 
-        imageSlider.setImageList(slideModels);
+        // -----------
+
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        mDatabaseRef = firebaseDatabase.getReference("banners");
+        flowers = new ArrayList<>();
         mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                slideModels.clear();
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     banner = postSnapshot.getValue(Banner.class);
                     Log.i(TAG, "onCreateView: Data > " + postSnapshot.getValue());
-                    slideModels.add(new SlideModel("" + banner.getImageUrl(),  ScaleTypes.FIT));
+                    slideModels.add(new SlideModel("" + banner.getImageUrl(), ScaleTypes.FIT));
                 }
                 imageSlider.setImageList(slideModels);
             }
@@ -90,32 +97,32 @@ public class HomeFragment extends Fragment {
         });
 
 
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false));
-
-        arrFlower=new ArrayList<>();
-        arrFlower.add(new FlowerRecyclerModal(766,"https://images.unsplash.com/photo-1535850836387-0f9dfce30846?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zmxvd2VycyUyMHdoaXRlJTIwYmFja2dyb3VuZHxlbnwwfHwwfHw%3D&w=1000&q=80","Rose"));
-        arrFlower.add(new FlowerRecyclerModal(156,"https://img.freepik.com/premium-vector/marigold-flowers-isolated-white-background-illustration_316696-12.jpg?w=2000","Marigold"));
-        arrFlower.add(new FlowerRecyclerModal(446,"https://previews.123rf.com/images/vlpopovich/vlpopovich1503/vlpopovich150300002/37947615-big-flower-bouquet-from-pink-roses-isolated-on-white-background-closeup-.jpg?fj=1","Bouquet"));
-        arrFlower.add(new FlowerRecyclerModal(446,"https://img.freepik.com/premium-photo/closeup-lily-valley-flowers-white_87646-6712.jpg?w=2000","lily"));
-        arrFlower.add(new FlowerRecyclerModal(156,"https://s3.envato.com/files/249322934/145.jpg","Marigold"));
-        arrFlower.add(new FlowerRecyclerModal(156,"https://www.proflowers.com/blog/wp-content/uploads/2016/01/white-dianthus.jpg","Lily"));
-        arrFlower.add(new FlowerRecyclerModal(766,"https://images.unsplash.com/photo-1535850836387-0f9dfce30846?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zmxvd2VycyUyMHdoaXRlJTIwYmFja2dyb3VuZHxlbnwwfHwwfHw%3D&w=1000&q=80","Rose"));
-        arrFlower.add(new FlowerRecyclerModal(156,"https://img.freepik.com/premium-vector/marigold-flowers-isolated-white-background-illustration_316696-12.jpg?w=2000","Marigold"));
-        arrFlower.add(new FlowerRecyclerModal(446,"https://previews.123rf.com/images/vlpopovich/vlpopovich1503/vlpopovich150300002/37947615-big-flower-bouquet-from-pink-roses-isolated-on-white-background-closeup-.jpg?fj=1","Bouquet"));
-        arrFlower.add(new FlowerRecyclerModal(446,"https://img.freepik.com/premium-photo/closeup-lily-valley-flowers-white_87646-6712.jpg?w=2000","lily"));
-        arrFlower.add(new FlowerRecyclerModal(156,"https://s3.envato.com/files/249322934/145.jpg","Marigold"));
-        arrFlower.add(new FlowerRecyclerModal(156,"https://www.proflowers.com/blog/wp-content/uploads/2016/01/white-dianthus.jpg","Lily"));
+        firebaseDatabase.getReference("flowers").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                flowers.clear();
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    flower = postSnapshot.getValue(Flower.class);
+                    Log.i(TAG, "onCreateView: Data > " + postSnapshot.getValue());
+                    flowers.add(flower);
+                }
+                flowerRecyclerview.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
+                flowerRecyclerview.setAdapter(new FlowerAdapter(flowers, getContext()));
+            }
 
 
-        recyclerView.setAdapter(new FlowerRecycleAdapter(arrFlower, getContext()));
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(getContext(), databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
         view_all.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                MainActivity.bottomNavigationView.setVisibility(View.GONE);
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction ft = fragmentManager.beginTransaction();
                 ft.replace(R.id.frame_Layout, new ViewAllRecyclerFragment());

@@ -46,9 +46,9 @@ public class LoginFragment extends Fragment {
         FirebaseApp.initializeApp(getContext().getApplicationContext());
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            MainActivity.bottomNavigationView.setVisibility(View.GONE);
 
         }
+        MainActivity.bottomNavigationView.setVisibility(View.GONE);
     }
 
     @Override

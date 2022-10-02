@@ -1,6 +1,7 @@
 package com.example.flowervalley;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -22,8 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
 
    public static BottomNavigationView bottomNavigationView;
-    Fragment fragment;
-    private SharedPreferenceManager sharedPreferenceManager;
+   private SharedPreferenceManager sharedPreferenceManager;
 
 
     @SuppressLint("NonConstantResourceId")
@@ -32,9 +32,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        replaceFragment(new LoginFragment());
-
-
+//        replaceFragment(new LoginFragment());
 
      bottomNavigationView =findViewById(R.id.bottom_navigation);
 
@@ -55,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
                         replaceFragment(new ProfileFragment());
                         break;
                 }
-
                 return true;
             }
         });
@@ -68,8 +65,6 @@ public class MainActivity extends AppCompatActivity {
         } else {
             replaceFragment(new LoginFragment());
         }
-
-
     }
 
     void replaceFragment(Fragment fragment){
@@ -78,6 +73,13 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.frame_Layout,fragment);
         fragmentTransaction.commit();
 
+    }
+
+    public void replaceFragment(Fragment fragment, Context context) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.replace(R.id.frame_Layout, fragment);
+        ft.commit();
     }
 }
 

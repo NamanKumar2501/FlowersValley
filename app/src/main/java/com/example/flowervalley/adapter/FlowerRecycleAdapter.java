@@ -11,16 +11,16 @@ import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.flowervalley.model.FlowerRecyclerModal;
 import com.example.flowervalley.R;
+import com.example.flowervalley.model.Flower;
 
 import java.util.ArrayList;
 
 public class FlowerRecycleAdapter extends RecyclerView.Adapter<FlowerRecycleAdapter.ViewHolder>{
-    ArrayList<FlowerRecyclerModal> arrFlower;
+    ArrayList<Flower> arrFlower;
     Context context;
 
-    public FlowerRecycleAdapter(ArrayList<FlowerRecyclerModal> arrFlower, Context context) {
+    public FlowerRecycleAdapter(ArrayList<Flower> arrFlower, Context context) {
         this.arrFlower = arrFlower;
         this.context = context;
     }
@@ -34,15 +34,14 @@ public class FlowerRecycleAdapter extends RecyclerView.Adapter<FlowerRecycleAdap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        FlowerRecyclerModal flowerRecyclerModal=arrFlower.get(position);
+    public void onBindViewHolder(@NonNull FlowerRecycleAdapter.ViewHolder holder, int position) {
+        Flower flower=arrFlower.get(position);
 
-        holder.flower_name.setText(""+flowerRecyclerModal.getFlowername());
-        holder.flower_price.setText(""+flowerRecyclerModal.getPrice());
+        holder.flower_name.setText(""+flower.getFlowerName());
+        holder.flower_price.setText(""+flower.getFlowerPrice());
         Glide.with(context)
-                .load(flowerRecyclerModal.getFlowerURL())
+                .load(flower.getFlowerImageUrl())
                 .into(holder.flower_img);
-
     }
 
     @Override

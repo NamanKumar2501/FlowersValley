@@ -62,7 +62,7 @@ public class OTPVerificationFragment extends Fragment {
             email = getArguments().getString("email");
             mobile = getArguments().getString("mobile");
         }
-        MainActivity.bottomNavigationView.setVisibility(View.VISIBLE);
+        MainActivity.bottomNavigationView.setVisibility(View.GONE);
     }
 
     @Override
@@ -110,9 +110,6 @@ public class OTPVerificationFragment extends Fragment {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
 
-//                            Utils.replaceFragment(new HomeFragment(), getActivity());
-
-
                             FirebaseUser firebaseUser = task.getResult().getUser();
                             Log.i(TAG, "verifyOtp: Name " + name);
                             Log.i(TAG, "verifyOtp: Email " + email);
@@ -129,7 +126,6 @@ public class OTPVerificationFragment extends Fragment {
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                                         databaseReference.setValue(user);
                                         Log.i(TAG, "onDataChange: " + snapshot);
-
 
                                         if (snapshot.exists()) {
                                             Snackbar.make(btnVerify, "Registration Successfully.", Snackbar.LENGTH_SHORT).show();
