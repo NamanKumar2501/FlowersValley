@@ -40,6 +40,8 @@ public class FlowerAdapter extends RecyclerView.Adapter<FlowerAdapter.ViewHolder
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.flower_card_recyclerview, parent, false);
+
+        ViewHolder viewHolder=new ViewHolder(view);
         return new ViewHolder(view);
     }
 
@@ -63,16 +65,30 @@ public class FlowerAdapter extends RecyclerView.Adapter<FlowerAdapter.ViewHolder
             }
         });
 
-//        holder.cardView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                FlowerDetailFragment fragment = new FlowerDetailFragment();
-//                Bundle bundle = new Bundle();
-//                bundle.putString("flower_id", flower.getFlowerId());
-//                fragment.setArguments(bundle);
-//                Utils.replaceFragment(fragment, (FragmentActivity) context);
-//            }
-//        });
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FlowerDetailFragment fragment = new FlowerDetailFragment();
+                Bundle bundle = new Bundle();
+
+                bundle.putString("flower_id", flower.getFlowerId());
+
+                bundle.putString("flower_name", flower.getFlowerName());
+                flower.setFlowerName("");
+
+                bundle.putString("flower_price", flower.getFlowerPrice());
+                flower.setFlowerPrice("");
+
+                bundle.putString("flower_about", flower.getFlowerDescription());
+                flower.setFlowerDescription("");
+
+                bundle.putString("flower_image", flower.getFlowerImageUrl());
+                flower.setFlowerImageUrl("");
+
+                fragment.setArguments(bundle);
+                Utils.replaceFragment(fragment, (FragmentActivity) context);
+            }
+        });
 
     }
 
@@ -89,7 +105,7 @@ public class FlowerAdapter extends RecyclerView.Adapter<FlowerAdapter.ViewHolder
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            cardView = itemView.findViewById(R.id.card_view);
+            cardView = itemView.findViewById(R.id.card);
             flowerName = itemView.findViewById(R.id.flower_name);
             flowerPrice = itemView.findViewById(R.id.flower_price);
             flowerImage = itemView.findViewById(R.id.flower_image);

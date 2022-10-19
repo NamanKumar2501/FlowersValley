@@ -54,11 +54,10 @@ public class FlowerRecycleAdapter extends RecyclerView.Adapter<FlowerRecycleAdap
         AppCompatImageView flower_img;
         AppCompatTextView flower_name,flower_price;
 
-
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             flower_img=itemView.findViewById(R.id.flower_image);
-            flower_name=itemView.findViewById(R.id.flower_name1);
+            flower_name=itemView.findViewById(R.id.flower_name);
             flower_price=itemView.findViewById(R.id.flower_price);
         }
     }
