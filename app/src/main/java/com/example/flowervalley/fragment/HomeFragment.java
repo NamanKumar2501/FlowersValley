@@ -5,8 +5,6 @@ import android.os.Bundle;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,7 +26,6 @@ import com.example.flowervalley.R;
 import com.example.flowervalley.SharedPreferenceManager;
 import com.example.flowervalley.Utils;
 import com.example.flowervalley.adapter.FlowerAdapter;
-import com.example.flowervalley.adapter.FlowerRecycleAdapter;
 import com.example.flowervalley.model.Banner;
 import com.example.flowervalley.model.Flower;
 import com.google.firebase.database.DataSnapshot;
@@ -44,7 +41,6 @@ public class HomeFragment extends Fragment {
     private RecyclerView flowerRecyclerview;
     private ImageSlider imageSlider;
     private AppCompatTextView view_all;
-
     private SharedPreferenceManager preferenceManager;
     private static final String TAG = "HomeFragment";
     private DatabaseReference mDatabaseRef;
@@ -53,7 +49,7 @@ public class HomeFragment extends Fragment {
     private Flower flower;
     private SearchView searchView;
     private ListView searchFlowerList;
-    RelativeLayout mainLayout;
+    private RelativeLayout mainLayout;
 
     public HomeFragment() {
         // Required empty public constructor

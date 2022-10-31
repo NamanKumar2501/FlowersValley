@@ -4,8 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android Apps/Flowers/app/src/main/res/drawable/login_btn.xml" value="0.1" />
+        <entry key="..\:/Android Apps/Flowers/app/src/main/res/layout/cart_recycleview_layout.xml" value="0.22" />
+        <entry key="..\:/Android Apps/Flowers/app/src/main/res/layout/flower_card_recyclerview.xml" value="0.20416666666666666" />
+        <entry key="..\:/Android Apps/Flowers/app/src/main/res/layout/fragment_cart.xml" value="0.1875" />
+        <entry key="..\:/Android Apps/Flowers/app/src/main/res/layout/fragment_favorite.xml" value="0.1875" />
+        <entry key="..\:/Android Apps/Flowers/app/src/main/res/layout/fragment_flower_detail.xml" value="0.1875" />
         <entry key="..\:/Android Apps/Flowers/app/src/main/res/layout/fragment_home.xml" value="0.1875" />
+        <entry key="..\:/Android Apps/Flowers/app/src/main/res/layout/fragment_profile.xml" value="0.1875" />
+        <entry key="..\:/Android Apps/Flowers/app/src/main/res/layout/fragment_ragister.xml" value="0.1875" />
+        <entry key="..\:/Android Apps/Flowers/app/src/main/res/layout/layout_cart_badge.xml" value="0.11594202898550725" />
         <entry key="..\:/Android Apps/Flowers/app/src/main/res/layout/search_view_layout.xml" value="0.1875" />
+        <entry key="..\:/Android Apps/Flowers/app/src/main/res/menu/navigation_bar.xml" value="0.1" />
         <entry key="..\:/Android/Flowers/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
         <entry key="..\:/Android/Flowers/app/src/main/res/layout/activity_splash.xml" value="0.17074275362318841" />
         <entry key="..\:/Android/Flowers/app/src/main/res/layout/flower_design_item.xml" value="0.1" />

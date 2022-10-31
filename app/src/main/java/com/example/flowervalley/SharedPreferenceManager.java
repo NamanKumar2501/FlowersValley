@@ -54,6 +54,4 @@ public class SharedPreferenceManager {
         return sharedPreferences.edit();
     }
 
-
-
 }

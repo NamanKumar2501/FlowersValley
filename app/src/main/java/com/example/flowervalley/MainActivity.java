@@ -21,7 +21,6 @@ import com.google.firebase.FirebaseApp;
 
 public class MainActivity extends AppCompatActivity {
 
-
    public static BottomNavigationView bottomNavigationView;
    private SharedPreferenceManager sharedPreferenceManager;
 
@@ -32,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        replaceFragment(new LoginFragment());
 
      bottomNavigationView =findViewById(R.id.bottom_navigation);
 

@@ -39,4 +39,7 @@
     <string name="go_to_payment"><![CDATA[GO TO PAYMENT -->]]></string>
     <string name="register">Register</string>
     <string name="add_to_cart">Add to Cart</string>
+    <string name="red_rose">Red Rose</string>
+    <string name="angle_flower_bouquet">Angle Flower Bouquet</string>
+    <string name="checkout">Checkout</string>
 </resources>
