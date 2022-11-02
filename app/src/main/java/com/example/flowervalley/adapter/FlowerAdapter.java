@@ -48,8 +48,8 @@ public class FlowerAdapter extends RecyclerView.Adapter<FlowerAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Flower flower = list.get(position);
-        holder.flowerName.setText(flower.getFlowerName());
-        holder.flowerPrice.setText(flower.getFlowerPrice());
+        holder.flowerName.setText(""+flower.getFlowerName());
+        holder.flowerPrice.setText(""+flower.getFlowerPrice());
         Glide.with(context)
                 .load(flower.getFlowerImageUrl())
                 .into(holder.flowerImage);
@@ -61,7 +61,7 @@ public class FlowerAdapter extends RecyclerView.Adapter<FlowerAdapter.ViewHolder
             public void onClick(View view) {
 
                 sharedPreferenceManager.setItemCounter(count++);
-                BottomMenuHelper.showBadge(context, MainActivity.bottomNavigationView, R.id.cart, "" + sharedPreferenceManager.getItemCounter());
+                Utils.addToCart(context,flower.getFlowerId(), flower.getFlowerName(), flower.getFlowerPrice(), flower.getFlowerImageUrl(), sharedPreferenceManager.getPhone());
             }
         });
 
@@ -72,24 +72,14 @@ public class FlowerAdapter extends RecyclerView.Adapter<FlowerAdapter.ViewHolder
                 Bundle bundle = new Bundle();
 
                 bundle.putString("flower_id", flower.getFlowerId());
-
                 bundle.putString("flower_name", flower.getFlowerName());
-                flower.setFlowerName("");
-
-                bundle.putString("flower_price", flower.getFlowerPrice());
-                flower.setFlowerPrice("");
-
+                bundle.putInt("flower_price", flower.getFlowerPrice());
                 bundle.putString("flower_about", flower.getFlowerDescription());
-                flower.setFlowerDescription("");
-
                 bundle.putString("flower_image", flower.getFlowerImageUrl());
-                flower.setFlowerImageUrl("");
-
                 fragment.setArguments(bundle);
                 Utils.replaceFragment(fragment, (FragmentActivity) context);
             }
         });
-
     }
 
     @Override
@@ -110,7 +100,6 @@ public class FlowerAdapter extends RecyclerView.Adapter<FlowerAdapter.ViewHolder
             flowerPrice = itemView.findViewById(R.id.flower_price);
             flowerImage = itemView.findViewById(R.id.flower_image);
             addItem = itemView.findViewById(R.id.btn_add_item);
-
         }
     }
 }

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,6 +17,7 @@ import android.view.ViewGroup;
 import com.example.flowervalley.MainActivity;
 import com.example.flowervalley.R;
 import com.example.flowervalley.SharedPreferenceManager;
+import com.example.flowervalley.Utils;
 import com.example.flowervalley.adapter.CartAdapter;
 import com.example.flowervalley.model.CartModel;
 import com.google.firebase.database.DataSnapshot;
@@ -29,13 +31,13 @@ import java.util.ArrayList;
 
 public class CartFragment extends Fragment {
 
-
     private static final String TAG = "CartFragment";
     private RecyclerView cartRecyclerview;
     private DatabaseReference mDatabaseRef;
     private FirebaseDatabase firebaseDatabase;
-    SharedPreferenceManager sharedPreferenceManager;
-    ArrayList<CartModel> cartModels;
+    private SharedPreferenceManager sharedPreferenceManager;
+    private ArrayList<CartModel> cartModels;
+    private AppCompatButton btnCheckOut;
 
 
     public CartFragment() {
@@ -46,7 +48,9 @@ public class CartFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
 
+        }
         MainActivity.bottomNavigationView.setVisibility(View.VISIBLE);
     }
 
@@ -55,6 +59,7 @@ public class CartFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_cart, container, false);
+        btnCheckOut = view.findViewById(R.id.check_out);
 
         cartRecyclerview = view.findViewById(R.id.cart_recyclerview);
 
@@ -89,6 +94,12 @@ public class CartFragment extends Fragment {
             }
         });
 
+        btnCheckOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Utils.replaceFragment(new CheckOutFragment(), getActivity());
+            }
+        });
 
         return view;
     }

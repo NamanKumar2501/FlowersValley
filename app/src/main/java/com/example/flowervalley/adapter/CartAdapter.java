@@ -20,7 +20,8 @@ import com.example.flowervalley.model.CartModel;
 
 import java.util.ArrayList;
 
-public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
+public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>{
+
     SharedPreferenceManager sharedPreferenceManager;
     ArrayList<CartModel> list;
     Context context;
@@ -93,4 +94,5 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
         }
     }
+
 }

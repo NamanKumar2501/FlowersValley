@@ -27,7 +27,7 @@
             android:layout_marginStart="100dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/poppins_medium"
-            android:text="Angle Flower Bouquet"
+            android:text="@string/angle_flower_bouquet"
             android:textSize="18sp" />
 
         <androidx.appcompat.widget.AppCompatTextView

@@ -45,5 +45,6 @@ dependencies {
     implementation 'com.google.firebase:firebase-appcheck-safetynet:16.0.2'
     implementation 'com.google.firebase:firebase-database:20.0.6'
 
+    implementation 'com.razorpay:checkout:1.6.4'
 
 }

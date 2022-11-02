@@ -42,4 +42,16 @@
     <string name="red_rose">Red Rose</string>
     <string name="angle_flower_bouquet">Angle Flower Bouquet</string>
     <string name="checkout">Checkout</string>
+
+        <string name="key_id">rzp_test_Feo6ev1HECbk7p</string>  // ----  Use for testing key
+<!--    <string name="key_id">rzp_live_58RJgkUOse8qR8</string>--> // ----  Use for real Payment key
+    <string name="key_secret">qFwyhIe92RgBk4wwizcGcO9T</string>
+    <string name="district">District</string>
+    <string name="city">City</string>
+    <string name="state">State</string>
+    <string name="postal_code">Postal Code</string>
+    <string name="contact_number">Contact Number</string>
+    <string name="add_new_address">Add New Address</string>
+
+
 </resources>
