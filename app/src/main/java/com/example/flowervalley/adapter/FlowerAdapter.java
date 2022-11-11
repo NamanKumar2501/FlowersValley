@@ -49,7 +49,7 @@ public class FlowerAdapter extends RecyclerView.Adapter<FlowerAdapter.ViewHolder
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Flower flower = list.get(position);
         holder.flowerName.setText(""+flower.getFlowerName());
-        holder.flowerPrice.setText(""+flower.getFlowerPrice());
+        holder.flowerPrice.setText("₹ "+flower.getFlowerPrice());
         Glide.with(context)
                 .load(flower.getFlowerImageUrl())
                 .into(holder.flowerImage);

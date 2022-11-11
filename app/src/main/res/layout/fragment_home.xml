@@ -27,14 +27,14 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:iconifiedByDefault="false"
         android:layout_marginTop="12dp"
+        android:layout_marginRight="12dp"
+        android:background="@drawable/login_btn"
+        android:iconifiedByDefault="false"
         android:layoutDirection="rtl"
         android:searchIcon="@null"
         android:theme="@style/ThemeOverlay.SearchView"
         app:closeIcon="@drawable/ic_baseline_close_24"
-        android:background="@drawable/login_btn"
         app:defaultQueryHint="Red Rose"
         app:searchIcon="@drawable/ic_search" />
 

@@ -86,6 +86,9 @@ public class HomeFragment extends Fragment {
         firebaseDatabase = FirebaseDatabase.getInstance();
         mDatabaseRef = firebaseDatabase.getReference("banners");
         flowers = new ArrayList<>();
+
+        // --------------- Banner ----------
+
         mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -104,6 +107,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        // -------------- Flowers ------------
 
         firebaseDatabase.getReference("flowers").addValueEventListener(new ValueEventListener() {
             @Override
@@ -127,7 +131,7 @@ public class HomeFragment extends Fragment {
         });
 
 
-        // ------- Start Search View -------
+        // ------- Search View -------
 
         ArrayAdapter<Flower> flowerArrayAdapter = new ArrayAdapter<>(getContext(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, flowers);
         searchFlowerList.setAdapter(flowerArrayAdapter);
@@ -147,7 +151,10 @@ public class HomeFragment extends Fragment {
         searchFlowerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Log.i(TAG, "onItemSelected: " + flowers.get(i).getFlowerId());
+                Log.i(TAG, "onItemClick: " + flowers.get(i).getFlowerId());
+
+
+                Utils.replaceFragment(new FlowerDetailFragment(), getActivity());
             }
         });
 
@@ -196,6 +203,8 @@ public class HomeFragment extends Fragment {
                 Utils.replaceFragment(new ViewAllRecyclerFragment(), getActivity());
             }
         });
+
+        Utils.getCartItemCount(preferenceManager.getPhone(), getContext());
 
         return view;
     }

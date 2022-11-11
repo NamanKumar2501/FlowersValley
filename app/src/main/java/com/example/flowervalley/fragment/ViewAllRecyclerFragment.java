@@ -79,7 +79,6 @@ public class ViewAllRecyclerFragment extends Fragment {
         });
         recyclerView.setAdapter(new FlowerRecycleAdapter(arrFlower,getContext()));
 
-
         return view;
     }
 

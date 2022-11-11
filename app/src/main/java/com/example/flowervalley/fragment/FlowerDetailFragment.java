@@ -22,6 +22,7 @@ import com.example.flowervalley.R;
 import com.example.flowervalley.Utils;
 import com.example.flowervalley.adapter.FlowerAdapter;
 import com.example.flowervalley.model.Flower;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,7 +35,8 @@ import java.util.ArrayList;
 public class FlowerDetailFragment extends Fragment {
 
     private static final String TAG = "FlowerDetailFragment";
-    String flowerId, flowerName,flowerPrice,flowerDescription,flowerImageUrl;
+    String flowerId, flowerName,flowerDescription,flowerImageUrl;
+    Integer flowerPrice;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
     AppCompatImageView flower_image;
@@ -52,7 +54,7 @@ public class FlowerDetailFragment extends Fragment {
         if (getArguments() != null) {
             flowerId = getArguments().getString("flower_id");
             flowerName=getArguments().getString("flower_name");
-            flowerPrice=getArguments().getString("flower_price");
+            flowerPrice=getArguments().getInt("flower_price");
             flowerDescription=getArguments().getString("flower_about");
             flowerImageUrl=getArguments().getString("flower_image");
 
@@ -101,7 +103,7 @@ public class FlowerDetailFragment extends Fragment {
                     Log.i(TAG, "onDataChange: " + snapshot);
 
                     flower_name.setText(flowerName);
-                    flower_price.setText(flowerPrice);
+                    flower_price.setText(String.valueOf("₹ "+ flowerPrice));
                     flower_about.setText(flowerDescription);
                 }
 
@@ -117,6 +119,7 @@ public class FlowerDetailFragment extends Fragment {
         } else {
             Toast.makeText(getContext(), "Please try again.", Toast.LENGTH_SHORT).show();
         }
+
 
 
         return view;
