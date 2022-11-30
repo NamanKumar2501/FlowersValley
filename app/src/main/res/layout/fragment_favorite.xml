@@ -39,8 +39,8 @@
             android:id="@+id/card_view_first"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             app:cardCornerRadius="15dp">
 
@@ -93,8 +93,8 @@
             android:layout_height="100dp"
             android:layout_below="@id/card_view_first"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
             app:cardCornerRadius="15dp">
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -289,8 +289,6 @@
 
 
         </RelativeLayout>
-
-
 
 
     </RelativeLayout>
