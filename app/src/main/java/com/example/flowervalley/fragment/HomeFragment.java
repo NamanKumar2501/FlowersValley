@@ -75,9 +75,9 @@ public class HomeFragment extends Fragment {
         flowerRecyclerview=view.findViewById(R.id.recycler_view);
         view_all=view.findViewById(R.id.view_all);
 
-        searchView = view.findViewById(R.id.search_bar);
+
         mainLayout = view.findViewById(R.id.main_layout);
-        searchFlowerList = view.findViewById(R.id.search_list);
+
 
 
         preferenceManager = new SharedPreferenceManager(getContext());
@@ -131,69 +131,69 @@ public class HomeFragment extends Fragment {
         });
 
 
-        // ------- Search View -------
-
-        ArrayAdapter<Flower> flowerArrayAdapter = new ArrayAdapter<>(getContext(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, flowers);
-        searchFlowerList.setAdapter(flowerArrayAdapter);
-        searchFlowerList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                //flower = flowers.get(i);
-                Log.i(TAG, "onItemSelected: " + flowers.get(i).getFlowerId());
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-                Log.e(TAG, "onNothingSelected:" );
-            }
-        });
-
-        searchFlowerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Log.i(TAG, "onItemClick: " + flowers.get(i).getFlowerId());
-
-
-                Utils.replaceFragment(new FlowerDetailFragment(), getActivity());
-            }
-        });
-
-
-        searchView.setQueryHint("Red Rose");
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                Log.i(TAG, "onQueryTextSubmit: " + query);
-                if (flowers.contains(query)) {
-                    flowerArrayAdapter.getFilter().filter(query);
-                } else {
-                    Toast.makeText(getContext(), "No Match found", Toast.LENGTH_LONG).show();
-                }
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                Log.i(TAG, "onQueryTextChange: " + newText);
-                searchFlowerList.setVisibility(View.VISIBLE);
-                mainLayout.setVisibility(View.GONE);
-                flowerArrayAdapter.getFilter().filter(newText);
-                return false;
-            }
-        });
-
-        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
-            @Override
-            public boolean onClose() {
-                searchView.onActionViewCollapsed();
-                searchFlowerList.setVisibility(View.GONE);
-                mainLayout.setVisibility(View.VISIBLE);
-                return false;
-            }
-        });
-
-        // -------- search view complete -------
-
+//        // ------- Search View -------
+//
+//        ArrayAdapter<Flower> flowerArrayAdapter = new ArrayAdapter<>(getContext(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, flowers);
+//        searchFlowerList.setAdapter(flowerArrayAdapter);
+//        searchFlowerList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                //flower = flowers.get(i);
+//                Log.i(TAG, "onItemSelected: " + flowers.get(i).getFlowerId());
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//                Log.e(TAG, "onNothingSelected:" );
+//            }
+//        });
+//
+//        searchFlowerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Log.i(TAG, "onItemClick: " + flowers.get(i).getFlowerId());
+//
+//
+//                Utils.replaceFragment(new FlowerDetailFragment(), getActivity());
+//            }
+//        });
+//
+//
+//        searchView.setQueryHint("Red Rose");
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                Log.i(TAG, "onQueryTextSubmit: " + query);
+//                if (flowers.contains(query)) {
+//                    flowerArrayAdapter.getFilter().filter(query);
+//                } else {
+//                    Toast.makeText(getContext(), "No Match found", Toast.LENGTH_LONG).show();
+//                }
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                Log.i(TAG, "onQueryTextChange: " + newText);
+//                searchFlowerList.setVisibility(View.VISIBLE);
+//                mainLayout.setVisibility(View.GONE);
+//                flowerArrayAdapter.getFilter().filter(newText);
+//                return false;
+//            }
+//        });
+//
+//        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+//            @Override
+//            public boolean onClose() {
+//                searchView.onActionViewCollapsed();
+//                searchFlowerList.setVisibility(View.GONE);
+//                mainLayout.setVisibility(View.VISIBLE);
+//                return false;
+//            }
+//        });
+//
+//        // -------- search view complete -------
+//
 
 
         view_all.setOnClickListener(new View.OnClickListener() {
